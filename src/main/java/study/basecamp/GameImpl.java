@@ -2,7 +2,6 @@ package study.basecamp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -11,8 +10,11 @@ public class GameImpl implements Game {
 
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
-    @Autowired
     private NumberGenerator numberGenerator;
+
+    GameImpl(){
+        numberGenerator = new NumberGeneratorImpl();
+    }
 
 
     private int guessCount = 10;
